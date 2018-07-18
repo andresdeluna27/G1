@@ -1,0 +1,25 @@
+<div class="contenedor" *ngFor="let k of numeros">
+  <ng-container  *ngFor="let i of numeros">
+    <ng-container *ngIf="i==0 || k==0; else marcador">
+      <span>"wrestler"</span>
+
+    </ng-container>
+    <ng-template #marcador>
+      <span>"marcador"</span>
+    </ng-template>
+    <span *ngIf="i!=k; else cruce" class="caja">"wretler-{{i}}{{k}}"</span>
+    <ng-template #cruce>
+      <span class="cruce">"wretler-{{i}}{{k}}"</span>
+    </ng-template>
+    
+    
+
+  </ng-container>
+
+
+</div>
+<div>
+  <input [value]="max" (input)="max = $event.target.value">
+  <span>{{max}}</span>
+  <button (click)="cambio()">cambio</button>
+</div>

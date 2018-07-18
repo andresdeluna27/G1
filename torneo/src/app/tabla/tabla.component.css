@@ -1,0 +1,13 @@
+.caja {
+  border: blue solid 1px;
+}
+.contenedor{
+  border: red solid 2px;
+  max-width: 60%;
+  margin-left:20%;
+  text-align:center;
+}
+.cruce{
+  background:gray;
+  color:blue;
+}
