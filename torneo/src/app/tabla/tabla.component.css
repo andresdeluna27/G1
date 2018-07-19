@@ -1,5 +1,11 @@
 .caja {
   border: blue solid 1px;
+  max-width: 50px;
+  min-width: 50px;
+  background: aqua;
+  position: relative;
+  display: inline-block;
+  text-align: center;
 }
 .contenedor{
   border: red solid 2px;
@@ -7,7 +13,19 @@
   margin-left:20%;
   text-align:center;
 }
-.cruce{
-  background:gray;
-  color:blue;
+.cruce {
+  background: gray;
+  color: blue;
+  max-width: 50px;
+  min-width: 50px;
+  position: relative;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+.numero {
+  max-width: 60px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
 }

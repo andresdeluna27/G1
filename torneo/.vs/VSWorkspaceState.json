@@ -3,9 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\leader-board",
     "\\src\\app\\new-cmp",
     "\\src\\app\\tabla"
   ],
-  "SelectedNode": "\\src\\app\\tabla\\tabla.component.css",
+  "SelectedNode": "\\src\\app\\leader-board\\leader-board.component.css",
   "PreviewInSolutionExplorer": false
 }

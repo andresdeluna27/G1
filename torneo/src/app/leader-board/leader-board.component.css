@@ -1,0 +1,8 @@
+.bordes {
+  border: solid green 2px;
+  position: relative;
+  display: inline-block;
+  min-width: 60px;
+  max-width: 60px;
+  text-align: center;
+}

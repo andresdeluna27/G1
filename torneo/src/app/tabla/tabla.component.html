@@ -1,25 +1,39 @@
-<div class="contenedor" *ngFor="let k of numeros">
-  <ng-container  *ngFor="let i of numeros">
-    <ng-container *ngIf="i==0 || k==0; else marcador">
-      <span>"wrestler"</span>
-
-    </ng-container>
-    <ng-template #marcador>
-      <span>"marcador"</span>
+<div class="contenedor" *ngFor="let i of numeros">
+  <ng-container  *ngFor="let k of numeros">
+    
+    <span *ngIf="i==k; else nocruza" class="cruce">"X{{i}}{{k}}"</span>
+    <ng-template #nocruza>
+      <textarea *ngIf="i==0 || k==0; else marcador" class="caja" [value]="revisaNombre(i,k)"></textarea>
+      <ng-template #marcador>
+        
+        <select class="caja" (change)="resultados[i][k]=$event.target.value; conteo()">
+          <option *ngIf="getResultado(i,k)==0; else cero" selected [value]="resultados[i][k]" >N/A</option>
+          <ng-template #cero>
+            <option value="0" >N/A</option>
+          </ng-template>
+          <option *ngIf="getResultado(i,k)==1; else uno"  selected [value]="resultados[i][k]" >{{luchadores[i-1]}}</option>
+          <ng-template #uno>
+            <option value="1" >{{luchadores[i-1]}}</option>
+          </ng-template>
+          <option *ngIf="getResultado(i,k)==2; else dos" selected [value]="resultados[i][k]" >{{luchadores[k-1]}}</option>
+          <ng-template #dos>
+            <option value="2" >{{luchadores[k-1]}}</option>
+          </ng-template>
+        </select>
+      </ng-template>
     </ng-template>
-    <span *ngIf="i!=k; else cruce" class="caja">"wretler-{{i}}{{k}}"</span>
-    <ng-template #cruce>
-      <span class="cruce">"wretler-{{i}}{{k}}"</span>
-    </ng-template>
+    
     
     
 
   </ng-container>
 
-
 </div>
+<leader-board [luchadores]="luchadores" [puntaje]="puntos"></leader-board>
 <div>
-  <input [value]="max" (input)="max = $event.target.value">
-  <span>{{max}}</span>
-  <button (click)="cambio()">cambio</button>
+  <input class="numero" [value]="max" (input)="max = $event.target.value">
+  <span>numero actual de participantes: {{max}}</span>
+  <br/>
+  <button (click)="cambio()">cambiar</button>
+  <button (click)="prueba()">ver</button>
 </div>
