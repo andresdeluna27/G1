@@ -8,7 +8,15 @@ import { Component, OnInit , Input } from '@angular/core';
 export class LeaderBoardComponent implements OnInit {
   @Input() puntaje;
   @Input() luchadores;
-  constructor() { }
+  @Input() iter;
+  constructor() {
+    /*let i = this.luchadores.length;
+    let j = 0;
+    while (j < i) {
+      this.iter.push(j);
+      j++;
+    }*/
+  }
 
   ngOnInit() {
   }

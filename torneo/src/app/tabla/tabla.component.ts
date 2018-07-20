@@ -30,12 +30,13 @@ export class TablaComponent implements OnInit {
 
   }
 
-  cambio() {
-    if (this.max < 2) {
+  cambio() {//es la funcion que cambia dinamicamente la tabla de cruces
+    if (this.max < 2) {//no permite menos de 2  contrincantes pero no mas de 8
       this.max = 2;
-    } else if (this.max > 6) {
-      this.max = 6;
+    } else if (this.max > 8) {
+      this.max = 8;
     }
+    this.ajustaNombres(this.max);
     this.numeros = [];
     let i = 0;
     while (i <= this.max) {
@@ -46,13 +47,22 @@ export class TablaComponent implements OnInit {
     for (var j = 0; j <= this.max; j++) {
       let row = new Array();
       for (var k = 0; k <= this.max; k++) {
-        row.push(Math.floor((Math.random() * 3) + 0))
+        //row.push(Math.floor((Math.random() * 3) + 0))
+        row.push(0);
       }
       this.resultados.push(row);
     }
-    console.log(this.resultados[1][1]);
+    this.conteo();
   }
-  revisaNombre(i,k) {
+  ajustaNombres(x) {
+    if (this.luchadores.length < this.max) {
+      while (this.luchadores.length <= this.max) {
+        this.luchadores.push("Nuevo");
+      }
+    }
+  }
+
+  revisaNombre(i,k) {//regresa el nombre del participante según si es la columna o renglon principal
     if (i == 0) {
       return this.luchadores[k - 1];
     } else {
@@ -60,11 +70,11 @@ export class TablaComponent implements OnInit {
     }
   }
 
-  getResultado(i,k) {
+  getResultado(i,k) {//regresa la matriz de resultados usada para el conteo
     return this.resultados[i][k];
   }
 
-  prueba() {
+  prueba() {//solo sirve para pruebas en consola
     let res = "";
     for (var j = 0; j <= this.max; j++) {
       for (var k = 0; k <= this.max; k++) {
@@ -77,7 +87,7 @@ export class TablaComponent implements OnInit {
     this.mostrar();
   }
 
-  conteo() {
+  conteo() { //hace el conteo de puntos segun los select
     this.puntos = [0, 0, 0, 0, 0];
     for (var i = 0; i <= this.max; i++) {
       for (var j = 0; j <= this.max; j++) {
@@ -90,7 +100,7 @@ export class TablaComponent implements OnInit {
     }
   }
 
-  mostrar() {
+  mostrar() { //sirve solo para pruebas en consola
     for (var i = 0; i < this.luchadores.length; i++) {
       console.log(this.luchadores[i]+" "+this.puntos[i].toString());
     }

@@ -3,7 +3,7 @@
     
     <span *ngIf="i==k; else nocruza" class="cruce">"X{{i}}{{k}}"</span>
     <ng-template #nocruza>
-      <textarea *ngIf="i==0 || k==0; else marcador" class="caja" [value]="revisaNombre(i,k)"></textarea>
+      <textarea *ngIf="i==0 || k==0; else marcador" class="caja2" [value]="revisaNombre(i,k)" (input)="(i==0)?luchadores[k-1]=$event.target.value:luchadores[i-1]=$event.target.value"></textarea>
       <ng-template #marcador>
         
         <select class="caja" (change)="resultados[i][k]=$event.target.value; conteo()">
@@ -29,7 +29,7 @@
   </ng-container>
 
 </div>
-<leader-board [luchadores]="luchadores" [puntaje]="puntos"></leader-board>
+
 <div>
   <input class="numero" [value]="max" (input)="max = $event.target.value">
   <span>numero actual de participantes: {{max}}</span>
@@ -37,3 +37,4 @@
   <button (click)="cambio()">cambiar</button>
   <button (click)="prueba()">ver</button>
 </div>
+<leader-board [luchadores]="luchadores" [puntaje]="puntos" [iter]="numeros"></leader-board>

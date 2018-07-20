@@ -1,17 +1,31 @@
 .caja {
-  border: blue solid 1px;
+  border: none;
   max-width: 50px;
   min-width: 50px;
   background: aqua;
   position: relative;
-  display: inline-block;
+  display: inline-table;
   text-align: center;
+  min-height:45px;
+}
+.caja2 {
+  border: none;
+  max-width: 46px;
+  min-width: 46px;
+  background: aqua;
+  position: relative;
+  display: inline-table;
+  text-align: center;
+  min-height: 41px;
+  max-height:41px;
 }
 .contenedor{
-  border: red solid 2px;
+  padding-left:13%;
   max-width: 60%;
   margin-left:20%;
   text-align:center;
+  position:relative;
+  display:flex;
 }
 .cruce {
   background: gray;
@@ -19,13 +33,18 @@
   max-width: 50px;
   min-width: 50px;
   position: relative;
-  display: inline-block;
+  display: inline-table;
   position: relative;
   text-align: center;
+  min-height: 45px;
+  max-height:45px;
+  //padding-top:10px;
 }
 .numero {
   max-width: 60px;
   position: relative;
-  display: inline-block;
+  display: inline-table;
   text-align: center;
+  color:green;
 }
+
